@@ -1,0 +1,34 @@
+{
+  "links": [
+    {
+      "targetId": "990b8eee-696f-4a6a-bafe-6b70c1f716f9",
+      "targetType": "issue",
+      "linkType": "blocks",
+      "createdAt": "2026-02-22T15:47:14.127242+00:00"
+    },
+    {
+      "targetId": "6c8e089e-5032-4cd4-8af4-8b9ed5a5db67",
+      "targetType": "issue",
+      "linkType": "blocks",
+      "createdAt": "2026-02-22T15:47:14.478642+00:00"
+    },
+    {
+      "targetId": "090bd49a-fbe4-41da-a0c6-736268911f83",
+      "targetType": "issue",
+      "linkType": "blocks",
+      "createdAt": "2026-02-22T15:47:14.780677+00:00"
+    },
+    {
+      "targetId": "fb099277-4c5d-420e-aa3b-ca079c028f46",
+      "targetType": "issue",
+      "linkType": "blocks",
+      "createdAt": "2026-02-22T15:47:15.051502+00:00"
+    },
+    {
+      "targetId": "afa3b4f5-4886-42bf-b588-31409d8a91c2",
+      "targetType": "issue",
+      "linkType": "blocks",
+      "createdAt": "2026-02-22T15:47:15.324364+00:00"
+    }
+  ]
+}
