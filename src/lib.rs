@@ -4,6 +4,7 @@ extern crate rustc_lint;
 extern crate rustc_session;
 extern crate rustc_span;
 
+mod logic;
 mod max_lines_per_file;
 
 dylint_linting::dylint_library!();
