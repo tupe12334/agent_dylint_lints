@@ -7,6 +7,7 @@ extern crate rustc_span;
 
 mod max_lines_per_file;
 mod max_lines_per_function;
+mod too_many_lines;
 
 dylint_linting::dylint_library!();
 
@@ -15,6 +16,7 @@ dylint_linting::dylint_library!();
 pub fn register_lints(sess: &rustc_session::Session, lint_store: &mut rustc_lint::LintStore) {
     max_lines_per_file::register_lints(sess, lint_store);
     max_lines_per_function::register_lints(sess, lint_store);
+    too_many_lines::register_lints(sess, lint_store);
 }
 
 #[test]
