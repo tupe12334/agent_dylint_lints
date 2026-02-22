@@ -32,3 +32,11 @@ Uses a pinned nightly toolchain (see `rust-toolchain.toml`). Build and test:
 ```sh
 cargo test
 ```
+
+### Prerequisites
+
+- `cargo-llvm-cov` for test coverage enforcement:
+
+```sh
+cargo install cargo-llvm-cov
+```
