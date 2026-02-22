@@ -1,0 +1,10 @@
+warning: function has 61 lines, which exceeds the maximum of 60
+  --> $DIR/long_function.rs:5:1
+   |
+LL | fn long_function() {
+   | ^
+   |
+   = note: `#[warn(max_lines_per_function)]` on by default
+
+warning: 1 warning emitted
+

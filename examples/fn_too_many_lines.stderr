@@ -1,0 +1,26 @@
+warning: file has 107 lines, which exceeds the maximum of 100
+  --> $DIR/fn_too_many_lines.rs:1:1
+   |
+LL | fn main() {
+   | ^
+   |
+   = note: `#[warn(max_lines_per_file)]` on by default
+
+warning: function has 103 lines, which exceeds the maximum of 60
+  --> $DIR/fn_too_many_lines.rs:5:1
+   |
+LL | fn too_long() {
+   | ^
+   |
+   = note: `#[warn(max_lines_per_function)]` on by default
+
+warning: function body has 103 non-empty lines, which exceeds the maximum of 100
+  --> $DIR/fn_too_many_lines.rs:5:1
+   |
+LL | fn too_long() {
+   | ^
+   |
+   = note: `#[warn(too_many_lines)]` on by default
+
+warning: 3 warnings emitted
+

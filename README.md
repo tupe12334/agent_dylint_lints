@@ -6,7 +6,8 @@
 
 | Lint | Description |
 |------|-------------|
-| `MAX_LINES_PER_FILE` | Warns when a source file exceeds 100 lines |
+| `MAX_LINES_PER_FILE`     | Warns when a source file exceeds 100 lines   |
+| `MAX_LINES_PER_FUNCTION` | Warns when a function exceeds 60 lines       |
 
 ## Usage
 
@@ -35,8 +36,8 @@ cargo test
 
 ### Prerequisites
 
-- `cargo-llvm-cov` for test coverage enforcement:
+- `dylint-link` (required linker wrapper):
 
 ```sh
-cargo install cargo-llvm-cov
+cargo install dylint-link
 ```
