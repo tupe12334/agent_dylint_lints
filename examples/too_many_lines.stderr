@@ -1,4 +1,4 @@
-warning: file has 102 lines, which exceeds the maximum of 100
+warning: file has 101 lines, which exceeds the maximum of 100
   --> $DIR/too_many_lines.rs:1:1
    |
 LL | fn main() {}
