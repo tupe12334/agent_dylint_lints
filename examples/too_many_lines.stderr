@@ -1,0 +1,10 @@
+warning: file has 102 lines, which exceeds the maximum of 100
+  --> $DIR/too_many_lines.rs:1:1
+   |
+LL | fn main() {}
+   | ^
+   |
+   = note: `#[warn(max_lines_per_file)]` on by default
+
+warning: 1 warning emitted
+
