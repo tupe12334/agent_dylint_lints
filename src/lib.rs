@@ -9,6 +9,7 @@ extern crate rustc_span;
 mod max_lines_per_file;
 mod max_lines_per_function;
 mod no_expect;
+mod no_unwrap;
 mod too_many_lines;
 
 dylint_linting::dylint_library!();
@@ -19,6 +20,7 @@ pub fn register_lints(sess: &rustc_session::Session, lint_store: &mut rustc_lint
     max_lines_per_file::register_lints(sess, lint_store);
     max_lines_per_function::register_lints(sess, lint_store);
     no_expect::register_lints(sess, lint_store);
+    no_unwrap::register_lints(sess, lint_store);
     too_many_lines::register_lints(sess, lint_store);
 }
 
