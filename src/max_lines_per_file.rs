@@ -1,6 +1,6 @@
 use clippy_utils::diagnostics::span_lint;
-use rustc_lint::{LateContext, LateLintPass};
-use rustc_span::{FileName, Span};
+use rustc_lint::{LateContext, LateLintPass, LintContext};
+use rustc_span::{BytePos, FileName, Span};
 
 dylint_linting::declare_late_lint! {
     /// ### What it does
@@ -37,7 +37,7 @@ impl<'tcx> LateLintPass<'tcx> for MaxLinesPerFile {
             }
             let line_count = file.count_lines();
             if line_count > MAX_LINES {
-                let span = Span::with_root_ctxt(file.start_pos, file.start_pos);
+                let span = Span::with_root_ctxt(file.start_pos, BytePos(file.start_pos.0 + 1));
                 span_lint(
                     cx,
                     MAX_LINES_PER_FILE,
