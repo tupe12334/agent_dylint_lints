@@ -1,0 +1,15 @@
+warning: you are implementing `Iterator` on a `Copy` type; consider implementing `IntoIterator` instead
+  --> $DIR/copy_iterator.rs:5:1
+   |
+LL | / impl Iterator for CopyIter {
+LL | |     type Item = i32;
+LL | |     fn next(&mut self) -> Option<i32> {
+LL | |         None
+LL | |     }
+LL | | }
+   | |_^
+   |
+   = note: `#[warn(copy_iterator)]` on by default
+
+warning: 1 warning emitted
+
