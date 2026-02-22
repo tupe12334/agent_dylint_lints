@@ -27,5 +27,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
 
+      - name: Install dylint-link
+        run: cargo install dylint-link
+
       - name: Run tests
         run: cargo test

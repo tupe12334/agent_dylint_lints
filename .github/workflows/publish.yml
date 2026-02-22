@@ -26,6 +26,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
 
+      - name: Install dylint-link
+        run: cargo install dylint-link
+
       - name: Run tests
         run: cargo test
 
@@ -38,6 +41,9 @@ jobs:
 
       - name: Install Rust toolchain
         run: rustup show
+
+      - name: Install dylint-link
+        run: cargo install dylint-link
 
       - name: Publish
         run: cargo publish
