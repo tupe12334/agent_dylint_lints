@@ -1,0 +1,10 @@
+warning: usage of wildcard import
+  --> $DIR/wildcard_imports.rs:3:1
+   |
+LL | use std::io::*; // should warn
+   | ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(wildcard_imports)]` on by default
+
+warning: 1 warning emitted
+
