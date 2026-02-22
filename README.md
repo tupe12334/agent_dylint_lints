@@ -2,13 +2,6 @@
 
 [Dylint](https://github.com/trailofbits/dylint) lints for agent code patterns.
 
-## Lints
-
-| Lint | Description |
-|------|-------------|
-| `MAX_LINES_PER_FILE`     | Warns when a source file exceeds 100 lines   |
-| `MAX_LINES_PER_FUNCTION` | Warns when a function exceeds 60 lines       |
-
 ## Usage
 
 Add to your project's `Cargo.toml`:
