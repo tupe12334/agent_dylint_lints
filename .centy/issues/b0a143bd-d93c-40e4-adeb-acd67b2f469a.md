@@ -1,9 +1,9 @@
 ---
 displayNumber: 7
-status: open
+status: in-progress
 priority: 2
 createdAt: 2026-02-22T15:47:59.780996+00:00
-updatedAt: 2026-02-22T15:47:59.780996+00:00
+updatedAt: 2026-02-22T15:49:32.814302+00:00
 ---
 
 # Pre-push hook: enforce 100% test coverage with cargo-llvm-cov
