@@ -1,6 +1,4 @@
 #!/bin/sh
 cargo build
 cargo test
-# lib.rs and max_lines_per_file.rs only run inside the dylint driver subprocess,
-# so their coverage cannot be captured. Pure logic lives in logic.rs and is tested directly.
-cargo llvm-cov --fail-under-lines 100 --ignore-filename-regex "max_lines_per_file|lib"
+cargo llvm-cov --fail-under-lines 100
