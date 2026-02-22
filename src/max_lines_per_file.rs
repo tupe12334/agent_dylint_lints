@@ -1,5 +1,5 @@
 use clippy_utils::diagnostics::span_lint;
-use rustc_lint::{LateContext, LateLintPass};
+use rustc_lint::{LateContext, LateLintPass, LintContext};
 use rustc_span::{BytePos, FileName, Span};
 
 dylint_linting::declare_late_lint! {
