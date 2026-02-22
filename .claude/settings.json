@@ -167,7 +167,10 @@
       "Bash(gh pr diff:*)",
       "Bash(npm root:*)",
       "Bash(rustup run:*)",
-      "Bash(cargo dylint:*)"
+      "Bash(cargo dylint:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_evaluate"
     ],
     "deny": ["Bash(gh issue create:*)"]
   },
