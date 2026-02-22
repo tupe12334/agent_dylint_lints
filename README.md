@@ -9,7 +9,7 @@ Add to your project's `Cargo.toml`:
 ```toml
 [workspace.metadata.dylint]
 libraries = [
-    { crate = "agent_dylint_lints", version = "0.1.0" },
+    { git = "https://github.com/tupe12334/agent_dylint_lints" },
 ]
 ```
 
