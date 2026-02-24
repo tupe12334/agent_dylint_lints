@@ -1,3 +1,4 @@
+#[allow(unused_variables, unused_assignments)]
 fn main() {
     let mut s = String::from("hello");
     let other = String::from("world");

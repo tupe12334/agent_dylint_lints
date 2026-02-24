@@ -1,4 +1,5 @@
 // Should trigger: Copy type implementing Iterator
+#[allow(dead_code)]
 #[derive(Copy, Clone)]
 struct CopyIter;
 
@@ -10,6 +11,7 @@ impl Iterator for CopyIter {
 }
 
 // Should NOT trigger: non-Copy type implementing Iterator
+#[allow(dead_code)]
 struct NonCopyIter;
 
 impl Iterator for NonCopyIter {

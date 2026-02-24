@@ -40,13 +40,17 @@ impl<'tcx> LateLintPass<'tcx> for TooManyLines {
 
         const MAX_LINES: usize = 100;
 
-        let Ok(snippet) = cx.sess().source_map().span_to_snippet(body.value.span) else {
-            return;
-        };
-        let line_count = snippet
-            .lines()
-            .filter(|line| !line.trim().is_empty())
-            .count();
+        let line_count = cx
+            .sess()
+            .source_map()
+            .span_to_snippet(body.value.span)
+            .map(|snippet| {
+                snippet
+                    .lines()
+                    .filter(|line| !line.trim().is_empty())
+                    .count()
+            })
+            .unwrap_or(0);
         if line_count > MAX_LINES {
             let report_span = span.with_hi(BytePos(span.lo().0 + 1));
             span_lint(

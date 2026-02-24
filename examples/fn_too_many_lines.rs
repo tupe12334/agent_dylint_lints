@@ -1,4 +1,6 @@
-fn main() {}
+fn main() {
+    too_long();
+}
 
 fn too_long() {
     // 1

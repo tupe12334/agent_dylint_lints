@@ -1,3 +1,15 @@
 /target
+node_modules
 .playwright-mcp
 .env
+# compiled example binaries placed in project root during testing
+/assigning_clones
+/copy_iterator
+/fn_too_many_lines
+/long_function
+/main
+/no_expect
+/no_unwrap
+/too_many_lines
+/unused_async
+/wildcard_imports

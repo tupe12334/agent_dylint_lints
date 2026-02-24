@@ -1,4 +1,6 @@
-fn main() {}
+fn main() {
+    long_function();
+}
 
 fn long_function() {
     // 1
