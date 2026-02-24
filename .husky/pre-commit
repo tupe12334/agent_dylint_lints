@@ -1,3 +1,4 @@
 #!/bin/sh
+pnpm dlx cspell "**/*.{rs,md,toml,json}" --no-progress
 cargo fmt --all --check
 cargo clippy --all-targets --all-features -- -D warnings
