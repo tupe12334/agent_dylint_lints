@@ -1,5 +1,5 @@
 warning: you are implementing `Iterator` on a `Copy` type; consider implementing `IntoIterator` instead
-  --> $DIR/copy_iterator.rs:5:1
+  --> $DIR/copy_iterator.rs:6:1
    |
 LL | / impl Iterator for CopyIter {
 LL | |     type Item = i32;
