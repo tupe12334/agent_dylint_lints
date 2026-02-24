@@ -1,0 +1,19 @@
+warning: assigning a cloned value, consider using `clone_from`
+  --> $DIR/assigning_clones.rs:4:5
+   |
+LL |     s = other.clone(); // should warn: use clone_from
+   |     ^^^^^^^^^^^^^^^^^
+   |
+   = help: use `lhs.clone_from(&rhs)` to potentially reuse existing allocations
+   = note: `#[warn(assigning_clones)]` on by default
+
+warning: assigning a `to_owned` value, consider using `clone_into`
+  --> $DIR/assigning_clones.rs:8:5
+   |
+LL |     t = slice.to_owned(); // should warn: use clone_into
+   |     ^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: use `rhs.clone_into(&mut lhs)` to potentially reuse existing allocations
+
+warning: 2 warnings emitted
+
