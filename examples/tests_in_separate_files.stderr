@@ -1,0 +1,10 @@
+warning: file contains an inline `#[cfg(test)]` module; move tests to a separate `<name>_tests.rs` file
+  --> $DIR/tests_in_separate_files.rs:1:1
+   |
+LL | fn main() {}
+   | ^
+   |
+   = note: `#[warn(tests_in_separate_files)]` on by default
+
+warning: 1 warning emitted
+
