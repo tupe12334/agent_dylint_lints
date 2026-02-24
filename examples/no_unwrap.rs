@@ -5,6 +5,16 @@ impl Wrapper {
     }
 }
 
+// Should NOT trigger: type parameter with unwrap method (not an Adt)
+#[allow(dead_code)]
+trait HasUnwrap {
+    fn unwrap(self) -> i32;
+}
+#[allow(dead_code)]
+fn generic_unwrap<T: HasUnwrap>(v: T) {
+    let _ = v.unwrap();
+}
+
 fn main() {
     let opt: Option<i32> = std::hint::black_box(Some(1));
     let _ = opt.unwrap();

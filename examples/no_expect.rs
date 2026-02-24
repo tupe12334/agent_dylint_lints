@@ -5,6 +5,16 @@ impl Wrapper {
     }
 }
 
+// Should NOT trigger: type parameter with expect method (not an Adt)
+#[allow(dead_code)]
+trait HasExpect {
+    fn expect(self, _msg: &str) -> i32;
+}
+#[allow(dead_code)]
+fn generic_expect<T: HasExpect>(v: T) {
+    let _ = v.expect("msg");
+}
+
 fn main() {
     let x: Option<i32> = std::hint::black_box(None);
     let _a = x.expect("should have value");
