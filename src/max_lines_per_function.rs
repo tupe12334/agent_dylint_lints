@@ -36,10 +36,12 @@ impl<'tcx> LateLintPass<'tcx> for MaxLinesPerFunction {
     ) {
         const MAX_LINES: usize = 60;
 
-        let Ok(file_lines) = cx.sess().source_map().span_to_lines(span) else {
-            return;
-        };
-        let line_count = file_lines.lines.len();
+        let line_count = cx
+            .sess()
+            .source_map()
+            .span_to_lines(span)
+            .map(|fl| fl.lines.len())
+            .unwrap_or(0);
         if line_count > MAX_LINES {
             let report_span = span.with_hi(BytePos(span.lo().0 + 1));
             span_lint(

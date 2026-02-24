@@ -31,23 +31,26 @@ dylint_linting::declare_late_lint! {
 
 impl<'tcx> LateLintPass<'tcx> for NoUnwrap {
     fn check_expr(&mut self, cx: &LateContext<'tcx>, expr: &'tcx Expr<'tcx>) {
-        if let ExprKind::MethodCall(path, recv, [], _) = expr.kind
-            && path.ident.name == sym::unwrap
+        let ExprKind::MethodCall(path, recv, [], _) = expr.kind else {
+            return;
+        };
+        if path.ident.name != sym::unwrap {
+            return;
+        }
+        let ty = cx.typeck_results().expr_ty(recv).peel_refs();
+        let TyKind::Adt(adt, _) = ty.kind() else {
+            return;
+        };
+        let did = adt.did();
+        if cx.tcx.is_diagnostic_item(sym::Option, did)
+            || cx.tcx.is_diagnostic_item(sym::Result, did)
         {
-            let ty = cx.typeck_results().expr_ty(recv).peel_refs();
-            if let TyKind::Adt(adt, _) = ty.kind() {
-                let did = adt.did();
-                if cx.tcx.is_diagnostic_item(sym::Option, did)
-                    || cx.tcx.is_diagnostic_item(sym::Result, did)
-                {
-                    span_lint(
-                        cx,
-                        NO_UNWRAP,
-                        expr.span,
-                        "called `.unwrap()` which may panic; use `?`, `unwrap_or`, or explicit error handling instead",
-                    );
-                }
-            }
+            span_lint(
+                cx,
+                NO_UNWRAP,
+                expr.span,
+                "called `.unwrap()` which may panic; use `?`, `unwrap_or`, or explicit error handling instead",
+            );
         }
     }
 }

@@ -26,10 +26,17 @@ impl AsyncTrait for Foo {
     }
 }
 
+// Should trigger: async fn with closure but no await
+async fn with_closure() -> i32 {
+    let _f = || 42;
+    42
+}
+
 #[allow(clippy::let_underscore_future)]
 fn main() {
     let _ = no_await();
     let _ = with_await();
     let _ = sync_fn();
     let _ = Foo.trait_method();
+    let _ = with_closure();
 }

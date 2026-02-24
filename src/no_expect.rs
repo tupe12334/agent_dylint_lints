@@ -28,23 +28,26 @@ dylint_linting::declare_late_lint! {
 
 impl<'tcx> LateLintPass<'tcx> for NoExpect {
     fn check_expr(&mut self, cx: &LateContext<'tcx>, expr: &'tcx Expr<'tcx>) {
-        if let ExprKind::MethodCall(method_path, receiver, _, _) = expr.kind
-            && method_path.ident.name.as_str() == "expect"
+        let ExprKind::MethodCall(method_path, receiver, _, _) = expr.kind else {
+            return;
+        };
+        if method_path.ident.name.as_str() != "expect" {
+            return;
+        }
+        let receiver_ty = cx.typeck_results().expr_ty(receiver).peel_refs();
+        let ty::Adt(adt_def, _) = receiver_ty.kind() else {
+            return;
+        };
+        let def_id = adt_def.did();
+        if cx.tcx.is_diagnostic_item(sym::Option, def_id)
+            || cx.tcx.is_diagnostic_item(sym::Result, def_id)
         {
-            let receiver_ty = cx.typeck_results().expr_ty(receiver).peel_refs();
-            if let ty::Adt(adt_def, _) = receiver_ty.kind() {
-                let def_id = adt_def.did();
-                if cx.tcx.is_diagnostic_item(sym::Option, def_id)
-                    || cx.tcx.is_diagnostic_item(sym::Result, def_id)
-                {
-                    span_lint(
-                        cx,
-                        NO_EXPECT,
-                        expr.span,
-                        "use of `.expect()` on `Option` or `Result`; prefer explicit error handling",
-                    );
-                }
-            }
+            span_lint(
+                cx,
+                NO_EXPECT,
+                expr.span,
+                "use of `.expect()` on `Option` or `Result`; prefer explicit error handling",
+            );
         }
     }
 }

@@ -1,5 +1,5 @@
 warning: use of `.expect()` on `Option` or `Result`; prefer explicit error handling
-  --> $DIR/no_expect.rs:3:14
+  --> $DIR/no_expect.rs:10:14
    |
 LL |     let _a = x.expect("should have value");
    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -7,7 +7,7 @@ LL |     let _a = x.expect("should have value");
    = note: `#[warn(no_expect)]` on by default
 
 warning: use of `.expect()` on `Option` or `Result`; prefer explicit error handling
-  --> $DIR/no_expect.rs:6:14
+  --> $DIR/no_expect.rs:13:14
    |
 LL |     let _b = y.expect("should be ok");
    |              ^^^^^^^^^^^^^^^^^^^^^^^^

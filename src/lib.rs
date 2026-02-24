@@ -86,4 +86,12 @@ fn run_compiler_with_lint(source_path: &str) {
 fn lint_runs_in_process() {
     run_compiler_with_lint("examples/main.rs");
     run_compiler_with_lint("examples/too_many_lines.rs");
+    run_compiler_with_lint("examples/assigning_clones.rs");
+    run_compiler_with_lint("examples/copy_iterator.rs");
+    run_compiler_with_lint("examples/fn_too_many_lines.rs");
+    run_compiler_with_lint("examples/long_function.rs");
+    run_compiler_with_lint("examples/no_expect.rs");
+    run_compiler_with_lint("examples/no_unwrap.rs");
+    run_compiler_with_lint("examples/unused_async.rs");
+    run_compiler_with_lint("examples/wildcard_imports.rs");
 }

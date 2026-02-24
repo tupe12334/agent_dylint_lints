@@ -1,5 +1,5 @@
 warning: called `.unwrap()` which may panic; use `?`, `unwrap_or`, or explicit error handling instead
-  --> $DIR/no_unwrap.rs:3:13
+  --> $DIR/no_unwrap.rs:10:13
    |
 LL |     let _ = opt.unwrap();
    |             ^^^^^^^^^^^^
@@ -7,7 +7,7 @@ LL |     let _ = opt.unwrap();
    = note: `#[warn(no_unwrap)]` on by default
 
 warning: called `.unwrap()` which may panic; use `?`, `unwrap_or`, or explicit error handling instead
-  --> $DIR/no_unwrap.rs:6:13
+  --> $DIR/no_unwrap.rs:13:13
    |
 LL |     let _ = res.unwrap();
    |             ^^^^^^^^^^^^
