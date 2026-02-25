@@ -53,6 +53,28 @@ dylint_linting::declare_late_lint! {
     "test modules should be in separate `<X>_tests.rs` files"
 }
 
+/// Returns true if the source text contains a `#[cfg(test)]` attribute
+/// directly preceding an inline module body (i.e., `mod name { ... }`).
+/// Module declarations like `#[cfg(test)] mod name;` are not flagged.
+fn has_inline_cfg_test_module(src: &str) -> bool {
+    const MARKER: &str = "#[cfg(test)]";
+    let mut pos = 0;
+    while let Some(found) = src[pos..].find(MARKER) {
+        let start = pos + found + MARKER.len();
+        let rest = src[start..].trim_start();
+        if rest.starts_with("mod ") || rest.starts_with("mod\t") {
+            // Find the first `{` or `;` to distinguish inline from external
+            let brace = rest.find('{').unwrap_or(usize::MAX);
+            let semi = rest.find(';').unwrap_or(usize::MAX);
+            if brace < semi {
+                return true;
+            }
+        }
+        pos = start;
+    }
+    false
+}
+
 impl<'tcx> LateLintPass<'tcx> for TestsInSeparateFiles {
     fn check_crate(&mut self, cx: &LateContext<'tcx>) {
         for file in cx.sess().source_map().files().iter() {
@@ -69,13 +91,14 @@ impl<'tcx> LateLintPass<'tcx> for TestsInSeparateFiles {
             if path_str.ends_with("_tests.rs") {
                 continue;
             }
-            // Check source text for inline #[cfg(test)] modules
-            let has_cfg_test = file
+            // Check source text for inline #[cfg(test)] module bodies
+            // (module declarations like `#[cfg(test)] mod foo;` are allowed)
+            let has_inline_test_mod = file
                 .src
                 .as_ref()
-                .map(|src| src.as_str().contains("#[cfg(test)]"))
+                .map(|src| has_inline_cfg_test_module(src.as_str()))
                 .unwrap_or(false);
-            if has_cfg_test {
+            if has_inline_test_mod {
                 let span = Span::with_root_ctxt(file.start_pos, BytePos(file.start_pos.0 + 1));
                 span_lint(
                     cx,
