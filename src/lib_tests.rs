@@ -55,6 +55,7 @@ fn lint_runs_in_process() {
     run_compiler_with_lint("examples/copy_iterator.rs");
     run_compiler_with_lint("examples/fn_too_many_lines.rs");
     run_compiler_with_lint("examples/long_function.rs");
+    run_compiler_with_lint("examples/max_nesting_depth.rs");
     run_compiler_with_lint("examples/no_expect.rs");
     run_compiler_with_lint("examples/no_unwrap.rs");
     run_compiler_with_lint("examples/unused_async.rs");

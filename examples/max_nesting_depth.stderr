@@ -1,0 +1,47 @@
+warning: nesting depth is 5, which exceeds the maximum of 4
+  --> $DIR/max_nesting_depth.rs:104:21
+   |
+LL | /                     for _e in 0..3 {
+LL | |                         // depth 5 – LINT
+LL | |                     }
+   | |_____________________^
+   |
+   = note: `#[warn(max_nesting_depth)]` on by default
+
+warning: nesting depth is 5, which exceeds the maximum of 4
+  --> $DIR/max_nesting_depth.rs:119:21
+   |
+LL | /                     while i < 3 {
+LL | |                         // depth 5 – LINT
+LL | |                         i += 1;
+LL | |                     }
+   | |_____________________^
+
+warning: nesting depth is 5, which exceeds the maximum of 4
+  --> $DIR/max_nesting_depth.rs:139:21
+   |
+LL | /                     if x == 1 {
+LL | |                         // depth 5 – LINT
+LL | |                     }
+   | |_____________________^
+
+warning: nesting depth is 5, which exceeds the maximum of 4
+  --> $DIR/max_nesting_depth.rs:154:21
+   |
+LL | /                     match x {
+LL | |                         // depth 5 – LINT
+LL | |                         _ => {}
+LL | |                     }
+   | |_____________________^
+
+warning: nesting depth is 5, which exceeds the maximum of 4
+  --> $DIR/max_nesting_depth.rs:169:30
+   |
+LL |                       let _f = || {
+   |  ______________________________^
+LL | |                         // depth 5 – LINT
+LL | |                     };
+   | |_____________________^
+
+warning: 5 warnings emitted
+

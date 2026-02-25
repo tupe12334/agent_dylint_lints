@@ -14,6 +14,7 @@ mod logic;
 mod logic_tests;
 mod max_lines_per_file;
 mod max_lines_per_function;
+mod max_nesting_depth;
 mod no_expect;
 mod no_unwrap;
 mod tests_in_separate_files;
@@ -30,6 +31,7 @@ pub fn register_lints(sess: &rustc_session::Session, lint_store: &mut rustc_lint
     copy_iterator::register_lints(sess, lint_store);
     max_lines_per_file::register_lints(sess, lint_store);
     max_lines_per_function::register_lints(sess, lint_store);
+    max_nesting_depth::register_lints(sess, lint_store);
     no_expect::register_lints(sess, lint_store);
     no_unwrap::register_lints(sess, lint_store);
     tests_in_separate_files::register_lints(sess, lint_store);
