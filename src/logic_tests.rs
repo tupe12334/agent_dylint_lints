@@ -1,6 +1,6 @@
 #![cfg(test)]
 
-use crate::logic::{lint_message, should_lint, MAX_LINES};
+use crate::logic::{MAX_LINES, lint_message, should_lint};
 use rustc_span::{FileName, RealFileName};
 
 fn local_file() -> FileName {
