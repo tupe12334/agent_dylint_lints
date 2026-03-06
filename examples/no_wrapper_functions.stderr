@@ -1,0 +1,16 @@
+error: this function is a thin wrapper around a library function; call it directly instead
+  --> $DIR/no_wrapper_functions.rs:2:8
+   |
+LL | pub fn is_metadata_ok(path: &std::path::Path) -> bool {
+   |        ^^^^^^^^^^^^^^
+   |
+   = note: `#[deny(no_wrapper_functions)]` on by default
+
+error: this function is a thin wrapper around a library function; call it directly instead
+  --> $DIR/no_wrapper_functions.rs:7:8
+   |
+LL | pub fn read_file(path: &std::path::Path) -> std::io::Result<String> {
+   |        ^^^^^^^^^
+
+error: aborting due to 2 previous errors
+

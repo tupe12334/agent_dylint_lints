@@ -1,4 +1,4 @@
 {
   "version": "0.2",
-  "words": ["asyncness", "cdylib", "clippy", "cnum", "ctxt", "Ctxt", "Desugared", "dylint", "intravisit", "rustc", "sess", "typeck"]
+  "words": ["asyncness", "cdylib", "clippy", "cnum", "ctxt", "Ctxt", "Desugared", "dylint", "intravisit", "qpath", "rustc", "sess", "typeck"]
 }
