@@ -21,4 +21,10 @@ fn constant() -> i32 {
     42
 }
 
+// Should NOT trigger: indirect call (callee is not a simple path)
+#[allow(clippy::redundant_closure_call, dead_code)]
+fn calls_indirect() -> i32 {
+    (|| 42)()
+}
+
 fn main() {}

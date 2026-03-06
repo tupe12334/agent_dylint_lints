@@ -1,6 +1,6 @@
 use clippy_utils::diagnostics::span_lint;
 use rustc_lint::{LateContext, LateLintPass, LintContext};
-use rustc_span::{BytePos, FileName, Span};
+use rustc_span::{BytePos, Span};
 
 dylint_linting::declare_late_lint! {
     /// ### What it does
@@ -80,10 +80,6 @@ impl<'tcx> LateLintPass<'tcx> for TestsInSeparateFiles {
         for file in cx.sess().source_map().files().iter() {
             // Only local crate files
             if file.cnum.as_u32() != 0 {
-                continue;
-            }
-            // Only real files
-            if !matches!(file.name, FileName::Real(_)) {
                 continue;
             }
             // Allow files that are themselves dedicated test files

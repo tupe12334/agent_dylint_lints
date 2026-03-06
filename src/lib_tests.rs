@@ -61,4 +61,6 @@ fn lint_runs_in_process() {
     run_compiler_with_lint("examples/wildcard_imports.rs");
     run_compiler_with_lint("examples/tests_in_separate_files.rs");
     run_compiler_with_lint("examples/no_wrapper_functions.rs");
+    // Covers the _tests.rs skip path in tests_in_separate_files::check_crate
+    run_compiler_with_lint("tests/coverage_main.rs");
 }
