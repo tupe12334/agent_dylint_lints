@@ -15,4 +15,10 @@ pub fn check_with_binding(path: &std::path::Path) -> bool {
     result.is_ok()
 }
 
+// Should NOT trigger: body is a literal, not a call
+#[allow(dead_code)]
+fn constant() -> i32 {
+    42
+}
+
 fn main() {}
